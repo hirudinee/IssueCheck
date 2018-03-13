@@ -85,6 +85,20 @@ exports.handler = function (event, context, callback) {
 			console.log('subscription errors ', data);
 		});
 
+	sns.confirmSubscription({
+		Token: '2336412f37fb687f5d51e6e241da92fd76847fb23d977cc3ef7e4b9ffe92d72f0fd398c3b80ea11a9cda6b1bfef86cf3d27eee282a35ce0118b5c62223daf63e00e2601e2afd54a6934e66367c21a71fae7945a30c46d089e5df45e05c63ab370f1d3bb82574f6d77492a760b7afaa9f',
+		TopicArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic',
+		AuthenticateOnUnsubscribe: 'false'
+	}).promise()
+		.then(data => {
+			// your code goes here
+			console.log('confirm subscription ', data);
+		})
+		.catch(err => {
+			// error handling goes here
+			console.log('confirm subscription error', data);
+		});
+
 
 	callback(null, 'Successfully executed');
 }
