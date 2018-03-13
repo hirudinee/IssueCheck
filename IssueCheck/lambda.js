@@ -71,32 +71,44 @@ exports.handler = function (event, context, callback) {
 			console.log('error occurred set topic attributes ', err);
 		});
 
-	sns.subscribe({
-		Protocol: 'email',
-		Endpoint: 'hirudinee@adroitlogic.com',
-		TopicArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic'
-	}).promise()
-		.then(data => {
-			// your code goes here
-			console.log('subscription ', data);
-		})
-		.catch(err => {
-			// error handling goes here
-			console.log('subscription errors ', data);
-		});
+	// sns.subscribe({
+	// 	Protocol: 'email',
+	// 	Endpoint: 'hirudinee@adroitlogic.com',
+	// 	TopicArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic'
+	// }).promise()
+	// 	.then(data => {
+	// 		// your code goes here
+	// 		console.log('subscription ', data);
+	// 	})
+	// 	.catch(err => {
+	// 		// error handling goes here
+	// 		console.log('subscription errors ', data);
+	// 	});
 
-	sns.confirmSubscription({
-		Token: '2336412f37fb687f5d51e6e241da92fd76847fb23d977cc3ef7e4b9ffe92d72f0fd398c3b80ea11a9cda6b1bfef86cf3d27eee282a35ce0118b5c62223daf63e00e2601e2afd54a6934e66367c21a71fae7945a30c46d089e5df45e05c63ab370f1d3bb82574f6d77492a760b7afaa9f',
-		TopicArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic',
-		AuthenticateOnUnsubscribe: 'false'
+	// sns.confirmSubscription({
+	// 	Token: '2336412f37fb687f5d51e6e241da92fd76847fb23d977cc3ef7e4b9ffe92d72f0fd398c3b80ea11a9cda6b1bfef86cf3d27eee282a35ce0118b5c62223daf63e00e2601e2afd54a6934e66367c21a71fae7945a30c46d089e5df45e05c63ab370f1d3bb82574f6d77492a760b7afaa9f',
+	// 	TopicArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic',
+	// 	AuthenticateOnUnsubscribe: 'false'
+	// }).promise()
+	// 	.then(data => {
+	// 		// your code goes here
+	// 		console.log('confirm subscription ', data);
+	// 	})
+	// 	.catch(err => {
+	// 		// error handling goes here
+	// 		console.log('confirm subscription error', err);
+	// 	});
+
+	sns.unsubscribe({
+		SubscriptionArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic:arn:aws:sns:us-east-1:263248768798:Testtopic:40abf061-4473-4cb5-b7bd-ed9973a8a76f'
 	}).promise()
 		.then(data => {
 			// your code goes here
-			console.log('confirm subscription ', data);
+			console.log('remove subscription ', data);
 		})
 		.catch(err => {
 			// error handling goes here
-			console.log('confirm subscription error', data);
+			console.log('remove subscription ', err);
 		});
 
 
