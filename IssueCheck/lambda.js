@@ -25,11 +25,11 @@ exports.handler = function (event, context, callback) {
 	}).promise()
 		.then(data => {
 			// your code goes here
-			console.log('sns publish ',data);
+			console.log('sns publish ', data);
 		})
 		.catch(err => {
 			// error handling goes here
-			console.log('sns publish error',err);
+			console.log('sns publish error', err);
 		});
 
 	sns.getTopicAttributes({
@@ -37,12 +37,26 @@ exports.handler = function (event, context, callback) {
 	}).promise()
 		.then(data => {
 			// your code goes here
-			console.log('get topic attributes ',data);
+			console.log('get topic attributes ', data);
 		})
 		.catch(err => {
 			// error handling goes here
-			console.log('error occurred get topic attributes ',err);
+			console.log('error occurred get topic attributes ', err);
 		});
+
+
+	sns.listSubscriptionsByTopic({
+		TopicArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic'
+	}).promise()
+		.then(data => {
+			// your code goes here
+			console.log('get topic attributes ', data);
+		})
+		.catch(err => {
+			// error handling goes here
+			console.log('error occurred get topic attributes ', err);
+		});
+
 
 
 	callback(null, 'Successfully executed');
