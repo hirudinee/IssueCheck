@@ -100,7 +100,7 @@ exports.handler = function (event, context, callback) {
 	// 	});
 
 	sns.unsubscribe({
-		SubscriptionArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic:arn:aws:sns:us-east-1:263248768798:Testtopic:40abf061-4473-4cb5-b7bd-ed9973a8a76f'
+		SubscriptionArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic:40abf061-4473-4cb5-b7bd-ed9973a8a76f'
 	}).promise()
 		.then(data => {
 			// your code goes here
