@@ -58,8 +58,8 @@ exports.handler = function (event, context, callback) {
 		});
 
 	sns.setTopicAttributes({
-		AttributeName: 'DisplayName',
-		AttributeValue: 'sample',
+		AttributeName: 'DeliveryPolicy',
+		AttributeValue: 'sample edit',
 		TopicArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic'
 	}).promise()
 		.then(data => {
