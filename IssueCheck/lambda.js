@@ -50,25 +50,25 @@ exports.handler = function (event, context, callback) {
 	}).promise()
 		.then(data => {
 			// your code goes here
-			console.log('get topic attributes ', data);
+			console.log('list subscriptions by topic ', data);
 		})
 		.catch(err => {
 			// error handling goes here
-			console.log('error occurred get topic attributes ', err);
+			console.log('error occurred list subscriptions by topic ', err);
 		});
 
 	sns.setTopicAttributes({
 		AttributeName: 'DisplayName',
-		AttributeValue: 'This is a test message',
+		AttributeValue: 'sample',
 		TopicArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic'
 	}).promise()
 		.then(data => {
 			// your code goes here
-			console.log('get topic attributes ', data);
+			console.log('set topic attributes ', data);
 		})
 		.catch(err => {
 			// error handling goes here
-			console.log('error occurred get topic attributes ', err);
+			console.log('error occurred set topic attributes ', err);
 		});
 
 
