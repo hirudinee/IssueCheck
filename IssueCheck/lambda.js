@@ -71,6 +71,20 @@ exports.handler = function (event, context, callback) {
 			console.log('error occurred set topic attributes ', err);
 		});
 
+	sns.subscribe({
+		Protocol: 'email',
+		Endpoint: 'hirudinee@adroitlogic.com',
+		TopicArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic'
+	}).promise()
+		.then(data => {
+			// your code goes here
+			console.log('subscription ', data);
+		})
+		.catch(err => {
+			// error handling goes here
+			console.log('subscription errors ', data);
+		});
+
 
 	callback(null, 'Successfully executed');
 }
