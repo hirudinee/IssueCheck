@@ -57,6 +57,19 @@ exports.handler = function (event, context, callback) {
 			console.log('error occurred get topic attributes ', err);
 		});
 
+	sns.setTopicAttributes({
+		AttributeName: 'DisplayName',
+		AttributeValue: 'This is a test message',
+		TopicArn: 'arn:aws:sns:us-east-1:263248768798:Testtopic'
+	}).promise()
+		.then(data => {
+			// your code goes here
+			console.log('get topic attributes ', data);
+		})
+		.catch(err => {
+			// error handling goes here
+			console.log('error occurred get topic attributes ', err);
+		});
 
 
 	callback(null, 'Successfully executed');
